@@ -21,5 +21,13 @@ app.get('/students', (req, res) => {
   }
 });
 
-// Export handler for Vercel
+console.log("Server starting...");
+
+if (require.main === module) {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+  });
+}
+
 module.exports = app;
